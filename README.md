@@ -1,2 +1,3 @@
-# ruby-course
-Files from the course of ruby.
+# bank-system
+
+Simple bank system created on the ruby course.
