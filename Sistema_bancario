@@ -1,0 +1,11 @@
+Sistema bancário:
+
+Features:
+	Possibilidade de criar/remover contas
+	Pssibilidade de fazer transferências
+	Extrato e saldo das contas (Possibilidade de imprimir o extrato de uma conta específica).
+	Salvar extrato/saldo em um arquivo
+	Notificar usuários quando uma transferência ocorrer
+
+
+	Conta:
