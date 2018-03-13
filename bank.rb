@@ -3,7 +3,6 @@ class Bank
 
 	def initialize
 		@list_of_accounts  = []
-		#@list_of_transactions = []
 		@account = Account.new(05312532363, 11, 1000)
 		@list_of_accounts << @account
 		File.open("Account#{@account.number}.txt", "w") {
@@ -16,7 +15,7 @@ class Bank
 		@list_of_accounts.each do |account|
 			puts account.cpf, account.number, account.balance
 		end
-		
+
 	end
 
 	def add_account(cpf, number, balance)
@@ -32,21 +31,21 @@ class Bank
 		@list_of_accounts.include? @account.number
 			@list_of_accounts.delete_if{|account| account.number == number}
 			puts "Account deleted"
-	
+
 	end
 
 	def transfer_between_accounts(account1, account2, valuetotransfer)
-			@list_of_accounts.map do |e|
-				if e.number == account1
-					e.balance -= valuetotransfer
-					open("Account#{account1}.txt", "a") { |f|  f.puts " \n-#{valuetotransfer}, balance: #{e.balance}"}
-				end
-				if e.number == account2
-					e.balance += valuetotransfer
-					open("Account#{account2}.txt", "a") { |f|  f.puts " \n+#{valuetotransfer}, balance: #{e.balance}"}
-				end
+		@list_of_accounts.map do |e|
+			if e.number == account1
+				e.balance -= valuetotransfer
+				open("Account#{account1}.txt", "a") { |f|  f.puts " \n-#{valuetotransfer}, balance: #{e.balance}"}
 			end
-			puts "Value transfered between the accounts!"
+			if e.number == account2
+				e.balance += valuetotransfer
+				open("Account#{account2}.txt", "a") { |f|  f.puts " \n+#{valuetotransfer}, balance: #{e.balance}"}
+			end
+		end
+		puts "Value transfered between the accounts!"
 	end
 
 	def show_balance_of_the_account(account_number)
